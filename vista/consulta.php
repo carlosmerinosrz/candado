@@ -1,8 +1,8 @@
 <?php
-$servidor = 'localhost';
-$usuario =  'root';
-$contrasenia = '';
-$bbdd = 'candado';
+$servidor = '2daw.esvirgua.com';
+$usuario =  'user2daw_09';
+$contrasenia = 'lQ)qFW^cg8w(';
+$bbdd = 'user2daw_BD2-09';
 
 $conn = new mysqli($servidor, $usuario, $contrasenia, $bbdd);
 
