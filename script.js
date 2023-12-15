@@ -9,7 +9,7 @@ class Controlador {
   /**
    * Crea un Controlador.
    */
-  constructor() {
+  constructor () {
     /** @type {Modelo} */
     this.modelo = new Modelo()
     const divCandado = document.getElementById('divCandado')
@@ -21,7 +21,7 @@ class Controlador {
    * Muestra una vista específica.
    * @param {Vista} vista - La vista a mostrar.
    */
-  verVista(vista) {
+  verVista (vista) {
     this.ocultarVistas()
     this.vistas.get(vista).mostrar(true)
   }
@@ -29,7 +29,7 @@ class Controlador {
   /**
    * Oculta todas las vistas.
    */
-  ocultarVistas() {
+  ocultarVistas () {
     for (const vista of this.vistas.values()) {
       vista.mostrar(false)
     }

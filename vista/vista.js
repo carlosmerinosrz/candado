@@ -13,7 +13,7 @@ export class Vista {
    * @param {Controlador} controlador - El controlador asociado a la vista
    * @param {HTMLElement} base - El elemento base de la vista
    */
-  constructor(controlador, base) {
+  constructor (controlador, base) {
     /**
      * El controlador asociado a la vista
      * @type {Controlador}
@@ -31,10 +31,7 @@ export class Vista {
    * Muestra u oculta la vista
    * @param {boolean} ver - Indica si se debe mostrar la vista (true) u ocultarla (false)
    */
-  mostrar(ver) {
-    if (ver)
-      this.base.style.display = 'block'
-    else 
-      this.base.style.display = 'none'
+  mostrar (ver) {
+    if (ver) { this.base.style.display = 'block' } else { this.base.style.display = 'none' }
   }
 }

@@ -1,0 +1,4 @@
+# Ignorar archivos JSON
+*.json
+*.eslintrc.js
+*node_modules

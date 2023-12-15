@@ -8,7 +8,7 @@ export class Candado extends Vista {
    * @param {Controlador} controlador - El controlador asociado al candado.
    * @param {HTMLElement} base - El elemento base del candado.
    */
-  constructor(controlador, base) {
+  constructor (controlador, base) {
     super(controlador, base)
 
     const numbers = document.querySelectorAll('.number-central')
@@ -33,15 +33,14 @@ export class Candado extends Vista {
     this.btnComprobar = this.base.querySelectorAll('button')[0]
     this.btnComprobar.onclick = this.comprobarCodigo.bind(this)
   }
-
   /**
    * Comprueba el código ingresado por el usuario.
    */
 
-  comprobarCodigo() {
+  comprobarCodigo () {
     const numeroCodigo = Array.from(document.querySelectorAll('.number-central')).map(div => parseInt(div.textContent))
     const divNumeros = document.querySelectorAll('.number-central')
-    
+
     this.verificarCodigoServidor(numeroCodigo)
       .then(respuesta => {
         if (respuesta === true) {
@@ -62,12 +61,12 @@ export class Candado extends Vista {
       })
   }
 
- /**
+  /**
    * Verifica el código del candado en el servidor.
    * @param {number[]} codigo - El código a verificar en el servidor.
    * @returns {Promise<boolean>} - Una promesa que resuelve con un booleano que indica si el código es correcto o no.
    */
-  verificarCodigoServidor(codigo) {
+  verificarCodigoServidor (codigo) {
     return new Promise((resolve, reject) => {
       fetch('vista/consulta.php', {
         method: 'POST',
@@ -76,26 +75,26 @@ export class Candado extends Vista {
         },
         body: JSON.stringify(codigo)
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-        return response.json()
-      })
-      .then(data => {
-        resolve(data.status === 'success')
-      })
-      .catch(error => {
-        reject(error)
-      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok')
+          }
+          return response.json()
+        })
+        .then(data => {
+          resolve(data.status === 'success')
+        })
+        .catch(error => {
+          reject(error)
+        })
     })
   }
 
-/**
+  /**
    * Muestra un mensaje en la interfaz.
    * @param {string} texto - El texto del mensaje a mostrar.
    */
-  mostrarMensaje(texto) {
+  mostrarMensaje (texto) {
     const mensaje = document.getElementById('mensaje')
     mensaje.textContent = texto
   }

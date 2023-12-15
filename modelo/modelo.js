@@ -5,11 +5,11 @@ export class Modelo {
   /**
    * Crea una instancia de Modelo.
    */
-  constructor() {
+  constructor () {
     /**
      * Mapa de datos gestionado por el modelo.
      * @type {Map}
      */
-    this.mapa = new Map();
+    this.mapa = new Map()
   }
 }
